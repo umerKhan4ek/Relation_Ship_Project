@@ -89,6 +89,7 @@ class AdminController extends Controller
 
     public function showAdminUsers()
     {
+        $user = null;
         $admin = Role::where('name', 'admin')->first();
         $adminUsers =  DB::table('role_user')->select('*')->where('role_id', $admin->id)->get();
         return ['data' => $adminUsers];
